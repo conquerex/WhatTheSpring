@@ -19,10 +19,17 @@ public class MemberService {
     }
 
     public Long join(Member member) {
-        validateDuplicateMember(member); // 중복 회원 검증
+        long start = System.currentTimeMillis();
 
-        memberRepository.save(member);
-        return member.getId();
+        try {
+            validateDuplicateMember(member); // 중복 회원 검증
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println(" >>> Time ::: " + timeMs);
+        }
     }
 
     private void validateDuplicateMember(Member member) {

@@ -3,6 +3,7 @@ package what.the.spring.WhatTheSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import what.the.spring.WhatTheSpring.aop.TimeTraceAop;
 import what.the.spring.WhatTheSpring.repository.JdbcMemberRepository;
 import what.the.spring.WhatTheSpring.repository.JdbcTemplateMemberRepository;
 import what.the.spring.WhatTheSpring.repository.JpaMemberRepository;
@@ -46,5 +47,10 @@ public class SpringConfig {
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
+//    }
+
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
 //    }
 }
